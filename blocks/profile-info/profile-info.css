@@ -1,0 +1,7 @@
+.profile-info {
+  color: white;
+  display: grid;
+  grid-template-columns: minmax(min-content, max-content) min-content;
+  grid-template-rows: repeat(2, min-content);
+  align-items: baseline;
+}
