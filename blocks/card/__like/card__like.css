@@ -9,6 +9,7 @@
   background-position: center;
   border:none;
   background-color: #ffffff;
+  flex-shrink: 0;
 }
 .card__like:hover {
   opacity: 0.5;
