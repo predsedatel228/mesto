@@ -1,4 +1,6 @@
 .popup__close-icon {
+  padding: 0;
+  margin: 0;
   width: 40px;
   height: 40px;
   position: relative;
@@ -10,13 +12,16 @@
   background-position: center;
   background-color: transparent;
   border: none;
+  background-size: cover;
 }
 .popup__close-icon:hover {
   opacity: 80%;
 }
 @media screen  and (max-width: 615px) {
   .popup__close-icon {
-    top: -53.62px;
-    left: 242px;
+    width: 36px;
+    height: 36px;
+    top: -49.62px;
+    left: 252px;
   }
 }

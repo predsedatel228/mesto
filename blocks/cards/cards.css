@@ -6,3 +6,8 @@
   gap: 17px;
   grid-template-columns: repeat(auto-fill , minmax(282px, 1fr));
 }
+@media screen  and (max-width: 615px) {
+  .cards {
+    margin-top: 36.25px;
+  }
+}
