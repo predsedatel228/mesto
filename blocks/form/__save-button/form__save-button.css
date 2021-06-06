@@ -1,7 +1,7 @@
-.popup__save-button {
+.form__save-button {
   margin-left: auto;
   margin-right: auto;
-  margin-top: 43px;
+  margin-top: 18px;
   width: 358px;
   height: 50px;
   font-size: 18px;
@@ -14,13 +14,14 @@
   border: none;
   cursor: pointer;
 }
-.popup__save-button:hover {
+.form__save-button:hover {
   opacity: 80%;
 }
 @media screen  and (max-width: 615px) {
-  .popup__save-button {
+  .form__save-button {
   width: 238px;
   font-size: 14px;
   line-height: 17px;
+  margin-top: 15px;
   }
 }

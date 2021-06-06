@@ -5,3 +5,8 @@
   grid-template-rows: repeat(2, min-content);
   align-items: baseline;
 }
+@media screen  and (max-width: 615px) {
+  .profile-info {
+    margin-top: 22.25px;
+  }
+}
