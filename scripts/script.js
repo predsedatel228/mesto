@@ -4,22 +4,22 @@ let popupCloseIcon = document.querySelector('.popup__close-icon');
 let popupSaveButton = document.querySelector('.form__save-button');
 let formName = document.querySelector('.form__info_type_name');
 let formDescription = document.querySelector('.form__info_type_description');
-let ProfileInfoTitle = document.querySelector('.profile-info__title');
-let ProfileInfoSubtitle = document.querySelector('.profile-info__subtitle');
+let profileInfoTitle = document.querySelector('.profile-info__title');
+let profileInfoSubtitle = document.querySelector('.profile-info__subtitle');
 let form = document.querySelector('.form');
 
 function togglePopup() {
   popup.classList.toggle('popup_opened');
 }
 function copyToForm () {
-  formName.value = ProfileInfoTitle.textContent;
-  formDescription.value = ProfileInfoSubtitle.textContent;
+  formName.value = profileInfoTitle.textContent;
+  formDescription.value = profileInfoSubtitle.textContent;
   togglePopup();
 }
 function formSubmitHandler (evt) {
   evt.preventDefault();
-  ProfileInfoTitle.textContent = formName.value;
-  ProfileInfoSubtitle.textContent = formDescription.value;
+  profileInfoTitle.textContent = formName.value;
+  profileInfoSubtitle.textContent = formDescription.value;
   togglePopup();
 }
 
