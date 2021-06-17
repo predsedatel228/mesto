@@ -23,50 +23,8 @@
         </div>
         <button type=button class="profile__add-button" aria-label="Добавить"></button>
       </section>
-      <section class="cards">
-        <article class="card">
-          <img src="./images/karachaevsk.png" alt="фото крепости" class="card__image">
-          <div class="card__container">
-            <h2 class="card__title">Карачаевск</h2>
-            <button class="card__like" type="button" aria-label="Лайк"></button>
-          </div>
 
-        </article>
-        <article class="card">
-          <img src="./images/elbrus.png" alt="фото Эльбруса" class="card__image">
-          <div class="card__container">
-            <h2 class="card__title">Гора Эльбрус</h2>
-            <button class="card__like" type="button" aria-label="Лайк"></button>
-          </div>
-        </article>
-        <article class="card">
-          <img src="./images/dombay.png" alt="Фото Домбай" class="card__image">
-          <div class="card__container">
-            <h2 class="card__title">Домбай</h2>
-            <button class="card__like" type="button" aria-label="Лайк"></button>
-          </div>
-        </article>
-        <article class="card">
-          <img src="./images/elbrus.png" alt="фото Эльбруса" class="card__image">
-          <div class="card__container">
-            <h2 class="card__title">Гора Эльбрус</h2>
-            <button class="card__like" type="button" aria-label="Лайк"></button>
-          </div>
-        </article>
-        <article class="card">
-          <img src="./images/dombay.png" alt="Фото Домбай" class="card__image">
-          <div class="card__container">
-            <h2 class="card__title">Домбай</h2>
-            <button class="card__like" type="button" aria-label="Лайк"></button>
-          </div>
-        </article>
-        <article class="card">
-          <img src="./images/karachaevsk.png" alt="фото крепости" class="card__image">
-          <div class="card__container">
-            <h2 class="card__title">Карачаевск</h2>
-            <button class="card__like" type="button" aria-label="Лайк"></button>
-          </div>
-        </article>
+      <section class="cards">
       </section>
 
     </main>
@@ -74,9 +32,9 @@
       <p class="footer__copyright">© 2020. Mesto Russia</p>
     </footer>
   </div>
-  <article class="popup">
+  <article class="popup popup_profile">
     <div class="popup__container">
-      <button class="popup__close-icon" type="button" aria-label="Закрыть"></button>
+      <button class="popup__close-icon popup-profile__close-icon" type="button" aria-label="Закрыть"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="form" name="profile">
         <input type="text" class="form__info form__info_type_name" name="username" placeholder="Имя">
@@ -85,7 +43,37 @@
       </form>
     </div>
   </article>
+  <article class="popup popup-card">
+    <div class="popup__container">
+      <button class="popup__close-icon popup-card__close-icon" type="button" aria-label="Закрыть"></button>
+      <h2 class="popup__title">Новое место</h2>
+      <form class="form" name="profile">
+        <input type="text" class="form__info form-card__info_type_name" name="username" placeholder="Название">
+        <input type="text" class="form__info form-card__info_type_description" name="description"
+          placeholder="Ссылка на картинку">
+        <button class="form__save-button form-card__save-button" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </article>
+  <div class="popup popup-img">
+    <button class="popup-img__close-icon" type="button" aria-label="Закрыть"></button>
+    <div class="popup-img__container">
+      <img src="" alt="" class="popup-img__image">
+      <h3 class="popup-img__title"></h3>
+    </div>
+  </div>
+  <template id="card">
+    <article class="card">
+      <button type="button" class="card__delete" aria-label="удалить"></button>
+      <img class="card__image">
+      <div class="card__container">
+        <h2 class="card__title"></h2>
+        <button class="card__like" type="button" aria-label="Лайк"></button>
+      </div>
+    </article>
+  </template>
   <script src="./scripts/script.js"></script>
+
 </body>
 
 </html>
