@@ -1,7 +1,7 @@
 const editButton = document.querySelector('.profile-info__edit-button');
 const popupProfile = document.querySelector('.popup_profile');
 const popupCloseIcon = document.querySelector('.popup__close-icon_type_profile');
-const popupSaveButton = document.querySelector('.form__profile-save-button');
+const popupSaveButton = document.querySelector('.form__prfile-save-button');
 const formName = document.querySelector('.form__info_type_name');
 const formDescription = document.querySelector('.form__info_type_description');
 const profileInfoTitle = document.querySelector('.profile-info__title');
@@ -12,7 +12,7 @@ const cardTemplate = document.querySelector('#card').content;
 const popupTitle = document.querySelector('.popup__title');
 
 const addButton = document.querySelector('.profile__add-button');
-const saveButton = document.querySelector('.form__card-save-button');
+
 
 
 const cardImg = document.querySelectorAll('.card__image');
@@ -27,6 +27,7 @@ const popupImg = document.querySelector('.popup-img');
 const popupImgCloseIcon = document.querySelector('.popup-img__close-icon');
 const popupImgTitle = document.querySelector(".popup-img__title");
 const popupImgImg = document.querySelector(".popup-img__image");
+const saveButton = popupCard.querySelector('.form');
 
 const initialCards = [
   {
