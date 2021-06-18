@@ -1,12 +1,12 @@
 const editButton = document.querySelector('.profile-info__edit-button');
 const popupProfile = document.querySelector('.popup_profile');
 const popupCloseIcon = document.querySelector('.popup__close-icon_type_profile');
-const popupSaveButton = document.querySelector('.form__save-button');
+const popupSaveButton = document.querySelector('.form__profile-save-button');
 const formName = document.querySelector('.form__info_type_name');
 const formDescription = document.querySelector('.form__info_type_description');
 const profileInfoTitle = document.querySelector('.profile-info__title');
 const profileInfoSubtitle = document.querySelector('.profile-info__subtitle');
-const form = document.querySelector('.form');
+const formProfile = popupProfile.querySelector('.form');
 const cards = document.querySelector('.cards');
 const cardTemplate = document.querySelector('#card').content;
 const popupTitle = document.querySelector('.popup__title');
@@ -55,16 +55,16 @@ const initialCards = [
   }
 ];
 
-function closePopup() {
-  popupProfile.classList.remove("popup_opened");
+function closePopupProfile() {
+  closeModal(popupProfile);
 }
 
 function openPopupCard() {
-  popupCard.classList.add("popup_opened");
+  openModal(popupCard);
 }
 function closePopupCard() {
-  popupCard.classList.remove("popup_opened");
-}
+  closeModal(popupCard);
+;}
 
 function openModal(modal) {
   modal.classList.add('popup_opened');
@@ -77,11 +77,11 @@ function openAdd() {
   openModal(popupCard);
 }
 function openPopupImg() {
-  popupImg.classList.add("popup_opened");
+  openModal(popupImg);
 }
 
 function closePopupImg() {
-  popupImg.classList.remove("popup_opened");
+  closeModal(popupImg);
 }
 
 function copyToForm() {
@@ -89,7 +89,7 @@ function copyToForm() {
   formDescription.value = profileInfoSubtitle.textContent;
   openModal(popupProfile);
 }
-function formSubmitHandler(evt) {
+function submitFormHandler(evt) {
   evt.preventDefault();
   profileInfoTitle.textContent = formName.value;
   profileInfoSubtitle.textContent = formDescription.value;
@@ -102,23 +102,28 @@ function renderCard(card) { //создание карточки
   cardElement.querySelector('.card__image').src = card.link;
   cardElement.querySelector('.card__image').alt = card.name;
   setEventListeners(cardElement);
+  return cardElement;
+
+}
+function createCard(card) {
+  const cardElement = renderCard(card);
   cards.prepend(cardElement);
 }
-
 function renderCards() { //рисует карточки
-  initialCards.forEach(renderCard);
+  initialCards.forEach(createCard);
 }
 renderCards() //запускаем при загрузке
 
 
 
-function handleSubmit(evt) { //ввод карточки
+function submitFormCard(evt) { //ввод карточки
+  debugger;
   evt.preventDefault();
   const element = {
     name: cardName.value,
     link: cardDescription.value,
   };
-  renderCard(element);
+  createCard(element);
   closeModal(popupCard);
 }
 
@@ -130,11 +135,11 @@ function deleteCard(evt) {//функция удаления карточки
 function setEventListeners(element, img) {//события
   element.querySelector('.card__delete').addEventListener('click', deleteCard);
   element.querySelector('.card__like').addEventListener('click', like);
-  element.querySelector('.card__image').addEventListener("click", popupImage);
+  element.querySelector('.card__image').addEventListener("click", loadPopupImage);
 
 }
 
-function popupImage(evt) {
+function loadPopupImage(evt) {
   openPopupImg();
   popupImgImg.src = evt.target.src;  
   const name = evt.target.closest('.card').querySelector('.card__title').textContent;
@@ -148,7 +153,7 @@ function like(evt) { // поставить класс
 
 
 editButton.addEventListener('click', copyToForm); //открыть попап для редактрования профилья
-popupCloseIcon.addEventListener('click', closePopup); //закрыть попап редактрования профиля*/
+popupCloseIcon.addEventListener('click', closePopupProfile); //закрыть попап редактрования профиля*/
 
 addButton.addEventListener('click', openPopupCard); //открыть попап для добавления карточки
 popupCloseIconCard.addEventListener('click', closePopupCard); //закрыть попап добавления карточки
@@ -156,5 +161,5 @@ popupCloseIconCard.addEventListener('click', closePopupCard); //закрыть �
 
 popupImgCloseIcon.addEventListener('click', closePopupImg); //закрыть попап изображение*/
 
-form.addEventListener('submit', formSubmitHandler); //сохранить изменения
-saveButton.addEventListener('click', handleSubmit);//запускаем сохранение
+formProfile.addEventListener('submit', submitFormHandler); //сохранить изменения
+saveButton.addEventListener('submit', submitFormCard);//запускаем сохранение
