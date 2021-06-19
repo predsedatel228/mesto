@@ -27,7 +27,7 @@ const popupImg = document.querySelector('.popup-img');
 const popupImgCloseIcon = document.querySelector('.popup-img__close-icon');
 const popupImgTitle = document.querySelector(".popup-img__title");
 const popupImgImg = document.querySelector(".popup-img__image");
-const saveButton = popupCard.querySelector('.form');
+const formPopupCard = popupCard.querySelector('.form');
 
 const initialCards = [
   {
@@ -118,7 +118,6 @@ renderCards() //запускаем при загрузке
 
 
 function submitFormCard(evt) { //ввод карточки
-  debugger;
   evt.preventDefault();
   const element = {
     name: cardName.value,
@@ -163,4 +162,4 @@ popupCloseIconCard.addEventListener('click', closePopupCard); //закрыть �
 popupImgCloseIcon.addEventListener('click', closePopupImg); //закрыть попап изображение*/
 
 formProfile.addEventListener('submit', submitFormHandler); //сохранить изменения
-saveButton.addEventListener('submit', submitFormCard);//запускаем сохранение
+formPopupCard.addEventListener('submit', submitFormCard);//запускаем сохранение
