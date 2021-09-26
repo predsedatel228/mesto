@@ -28,7 +28,9 @@ const popupImgCloseIcon = document.querySelector('.popup-img__close-icon');
 const popupImgTitle = document.querySelector(".popup-img__title");
 const popupImgImg = document.querySelector(".popup-img__image");
 const formPopupCard = popupCard.querySelector('.form');
-
+const popupOverlayProfile = document.querySelector(".popup_profile");
+const popupOverlayCard = document.querySelector(".popup-card");
+const popupOverlayImg = document.querySelector(".popup-img");
 const initialCards = [
   {
     name: 'Архыз',
@@ -69,6 +71,7 @@ function closePopupCard() {
 
 function openModal(modal) {
   modal.classList.add('popup_opened');
+  document.addEventListener('keydown', closeEscape);
 }
 
 function closeModal(modal) {
@@ -83,6 +86,13 @@ function openPopupImg() {
 
 function closePopupImg() {
   closeModal(popupImg);
+}
+
+function closeEscape (evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closeModal(openedPopup);
+  }
 }
 
 function copyToForm() {
@@ -151,6 +161,12 @@ function like(evt) { // поставить класс
   evt.target.classList.toggle("card__like_active");
 }
 
+function closePopupOverlay(evt) {
+  if (evt.target !== evt.currentTarget) {
+    return;
+  }
+  closeModal(evt.target);
+}
 
 editButton.addEventListener('click', copyToForm); //открыть попап для редактрования профилья
 popupCloseIcon.addEventListener('click', closePopupProfile); //закрыть попап редактрования профиля*/
@@ -163,3 +179,6 @@ popupImgCloseIcon.addEventListener('click', closePopupImg); //закрыть п�
 
 formProfile.addEventListener('submit', submitFormHandler); //сохранить изменения
 formPopupCard.addEventListener('submit', submitFormCard);//запускаем сохранение
+popupOverlayProfile.addEventListener('click', closePopupOverlay);
+popupOverlayCard.addEventListener('click', closePopupOverlay);
+popupOverlayImg.addEventListener('click', closePopupOverlay);
