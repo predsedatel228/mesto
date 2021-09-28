@@ -15,7 +15,6 @@ const addButton = document.querySelector('.profile__add-button');
 
 
 
-const cardImg = document.querySelectorAll('.card__image');
 
 const popupCloseIconCard = document.querySelector('.popup-card__close-icon');
 const cardLike = document.querySelectorAll('.card__like');
@@ -110,8 +109,9 @@ function submitFormHandler(evt) {
 function renderCard(card) { //создание карточки
   const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
   cardElement.querySelector('.card__title').textContent = card.name;
-  cardElement.querySelector('.card__image').src = card.link;
-  cardElement.querySelector('.card__image').alt = card.name;
+  const CardImg=cardElement.querySelector('.card__image');
+  CardImg.src = card.link;
+  CardImg.alt = card.name;
   setEventListeners(cardElement);
   return cardElement;
 
@@ -160,7 +160,6 @@ function loadPopupImage(evt) {
 function like(evt) { // поставить класс
   evt.target.classList.toggle("card__like_active");
 }
-
 function closePopupOverlay(evt) {
   if (evt.target !== evt.currentTarget) {
     return;
@@ -182,3 +181,4 @@ formPopupCard.addEventListener('submit', submitFormCard);//запускаем с
 popupOverlayProfile.addEventListener('click', closePopupOverlay);
 popupOverlayCard.addEventListener('click', closePopupOverlay);
 popupOverlayImg.addEventListener('click', closePopupOverlay);
+
