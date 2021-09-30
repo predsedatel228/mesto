@@ -75,6 +75,7 @@ function openModal(modal) {
 
 function closeModal(modal) {
   modal.classList.remove('popup_opened');
+  modal.remove.eventListener('keydown', closeEscape);
 }
 function openAdd() {
   openModal(popupCard);
@@ -109,9 +110,9 @@ function submitFormHandler(evt) {
 function renderCard(card) { //создание карточки
   const cardElement = cardTemplate.querySelector('.card').cloneNode(true);
   cardElement.querySelector('.card__title').textContent = card.name;
-  const CardImg=cardElement.querySelector('.card__image');
-  CardImg.src = card.link;
-  CardImg.alt = card.name;
+  const cardImg=cardElement.querySelector('.card__image');
+  cardImg.src = card.link;
+  cardImg.alt = card.name;
   setEventListeners(cardElement);
   return cardElement;
 
