@@ -75,7 +75,7 @@ function openModal(modal) {
 
 function closeModal(modal) {
   modal.classList.remove('popup_opened');
-  removeEventListener('keydown', closeEscape);
+  document.removeEventListener('keydown', closeEscape); 
 }
 function openAdd() {
   openModal(popupCard);
